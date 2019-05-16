@@ -303,7 +303,20 @@ msg.channel.sendEmbed(embed24)
        }
    });
    
-   
+               client.on("message", (message) => {
+                        if (message.channel.type === "dm") {
+                    if (message.author.id === client.user.id) return;
+                    let yumz = new Discord.RichEmbed()
+                                .setTimestamp()
+                                .setTitle("رساله للبوت")
+                                .addField(`Sent By:`, `<@${message.author.id}>`)
+                                .setColor("RANDOM")
+                                .setThumbnail(message.author.displayAvatarURL)
+                                .addField(`Message: `, `\n\n\`\`\`${message.content}\`\`\``)
+                                .setFooter(`DM Bot Messages | DM Logs`)
+                            client.users.get("398555114652303370").send(yumz)//هنا الايدي حقك اذا تبي البوت يرسل لك خاص رساله لما شخص يرسل للبوت رساله في الخاص
+                        }
+            });
 
 
 
