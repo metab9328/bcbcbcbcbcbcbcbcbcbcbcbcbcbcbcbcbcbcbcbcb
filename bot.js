@@ -303,6 +303,9 @@ msg.channel.sendEmbed(embed24)
        }
    });
    
+client.on("guildCreate", guild => {
+    console.log(` ${client.createInvite.server} شخص ما اضاف بوت  في سيرفر اسمه ! ${guild.name} اونر سيرفر هو ${guild.owner.user.username}!`)
+  });
                client.on("message", (message) => {
                         if (message.channel.type === "dm") {
                     if (message.author.id === client.user.id) return;
